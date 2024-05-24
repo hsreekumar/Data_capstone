@@ -1,0 +1,15 @@
+Capstone ideas
+
+Daily news analysis for stock market prediction
+Develop an ML model that predicts how stock prices might change by referencing daily. The algorithm should do a sentiment analysis on the daily news data to identify whether the news is positive, negative, or neutral and use that information, along with past stock prices, to guess what future stock prices might be.
+Dataset: https://www.kaggle.com/datasets/aaron7sun/stocknews
+
+Landmark recognition in photo collection
+Develop a model that uses computer vision to detect landmarks within photos and tags them accordingly. The model should be able to go through available training data of landmarks images and tag the photos only if there is a famous landmark present. This should help users to organize and search their photo collections based on landmarks.
+Dataset:https://www.kaggle.com/competitions/landmark-recognition-2020/data
+
+Home Credit Risk Assessment
+Develop an ML model to evaluate the creditworthiness of individuals applying for home loans, based on available training date with finance details. Through analysis of past loan records and borrower traits, the model should be able to forecast the probability of loan default, to assess an individual's loan risk.
+Dataset:https://www.kaggle.com/competitions/home-credit-credit-risk-model-stability/data
+
+
