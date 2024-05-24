@@ -3,10 +3,10 @@ This git repo consists of the data required for 3 capstone ideas presented initi
 1.Daily news analysis for stock market prediction
 Data available in folder - Stock_News_Data
 
-Landmark recognition in photo collection
+2.Landmark recognition in photo collection
 Data available in folder - landmark-recognition
 Data uploaded is aonly a subset of the test data, as the training data is huge in size
 
-Home Credit Risk Assessment
+3.Home Credit Risk Assessment
 Data available in folder - Home_credit
 Data uploaded is aonly a subset of the test data, as the training data is huge in size
