@@ -10,5 +10,4 @@ How to use the app:
 -Submit to see whether the model predicted 'positive' or 'negative' movement of stock price
 
 Deployment Model
-
-![Architecture](https://github.com/hsreekumar/Data_capstone/raw/main/Deployment/Architecture.png)
+![Architecture](https://raw.githubusercontent.com/hsreekumar/Data_capstone/main/Deployment/Architecture.png)
