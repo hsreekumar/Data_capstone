@@ -10,7 +10,7 @@ Utility to grab news headlines to test the model : https://news-grabber.streamli
 -Submit to see whether the model predicted 'positive' or 'negative' movement of stock price
 
 **Deployment Model**
-Architecture![](https://github.com/hsreekumar/Data_capstone/blob/main/Deployment/Architecture.png?raw=true)
+![Architecture](https://github.com/hsreekumar/Data_capstone/blob/main/Deployment/Architecture.png?raw=true)
 
 **Problem statement**
 https://github.com/hsreekumar/Data_capstone/tree/main/Data
