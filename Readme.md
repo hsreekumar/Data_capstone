@@ -66,5 +66,22 @@ Tensors are moved to the GPU (device) only when they are needed for computation.
 https://github.com/hsreekumar/Data_capstone/tree/main/Model%20Scaled%20for%20Input
 
 **<u>Training & Deployment</u>**
+
+After basic Data and Model exploration in Google Colab, data pre-processing, model training, hyper parameter tuning, evaluation and best model determination and resgistering is done in AWS Sagemaker.
+
+The best model is saved in S3 and a docker image is created to bundle all the required dependencies like PyTorch, Scikit learn etc, along with the lambda_function code to pass the user input for model prediction.
+
+Lambda function is deployed using the docker image and an api-gateway is added pointing to it, to expose the api outside. 
+
+A streamlit app is created to pass news-headlines as input, which internally passes it to the trained model to return the sentiment prediction for stock price movement
+
+A news grabber utility is deployed, along with stock-prediction app, to easily grab news headlines for a specific date. The apps are deployed in streamlit cloud.
+
+
+
+*Please find the link to the model deployment code, which involves Sagemaker pipeline, Preprocessing, Training, Evaluation & Lambda script, along with UI and and the outputs like Evaluation Metrics, in the link below*
+
 https://github.com/hsreekumar/Data_capstone/tree/main/Deployment
+
+
 
