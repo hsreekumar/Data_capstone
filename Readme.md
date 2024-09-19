@@ -65,7 +65,7 @@ Tensors are moved to the GPU (device) only when they are needed for computation.
 
 https://github.com/hsreekumar/Data_capstone/tree/main/Model%20Scaled%20for%20Input
 
-**<u>Training & Deployment</u>**
+<u>Training & Deployment</u>
 
 After basic Data and Model exploration in Google Colab, data pre-processing, model training, hyper parameter tuning, evaluation and best model determination and resgistering is done in AWS Sagemaker.
 
