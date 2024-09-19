@@ -1,12 +1,14 @@
-This git repo consists of the data required for 3 capstone ideas presented initially.
+Stock news sentiment prediction for Dow Jones Industrial Average(DJI)
 
-1.Daily news analysis for stock market prediction
-Data available in folder - Stock_News_Data
+App link: https://stock-news.streamlit.app/
 
-2.Landmark recognition in photo collection
-Data available in folder - landmark-recognition
-Data uploaded is aonly a subset of the test data, as the training data is huge in size
+Already available api to grab headlines: https://newsapi.org/v2/everything?sources=cnn&from=2024-09-05&to=2024-09-05&language=en&pageSize=25&sortBy=popularity&apiKey=9034a4796d7d4e4d94ebf59de07a6b5a
 
-3.Home Credit Risk Assessment
-Data available in folder - Home_credit
-Data uploaded is aonly a subset of the test data, as the training data is huge in size
+How to use the app:
+-Select one or multiple dates
+-Provide one or more news headlines for each date selected
+-Submit to see whether the model predicted 'positive' or 'negative' movement of stock price
+
+Deployment Model
+
+https://github.com/hsreekumar/Data_capstone/blob/main/Stock_News_Data/Deployment/Architecture.pdf
