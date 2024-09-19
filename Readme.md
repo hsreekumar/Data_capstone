@@ -2,7 +2,7 @@
 
 App link: https://stock-news.streamlit.app/
 
-Utility to grab news headlines to test the model : https://news-grabber.streamlit.app/
+Utility to grab news headlines to provide input to the model : https://news-grabber.streamlit.app/
 
 *How to use the app:*
 
