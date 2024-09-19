@@ -79,7 +79,7 @@ A news grabber utility is deployed, along with stock-prediction app, to easily g
 
 
 
-*Please find the link to the model deployment code, which involves Sagemaker pipeline, Preprocessing, Training, Evaluation & Lambda scripts, along with UI and outputs like Evaluation Metrics, in the link below*
+*Please find the link to the model deployment code, which involves Sagemaker pipeline, Preprocessing, Training, Evaluation & Lambda scripts, along with UI and outputs like Evaluation Metrics below*
 
 https://github.com/hsreekumar/Data_capstone/tree/main/Deployment
 
