@@ -12,6 +12,7 @@ from torch.utils.data import Dataset, DataLoader, SequentialSampler
 import shutil
 import torch.nn as nn
 from nltk.tokenize import word_tokenize
+import numpy as np
 
 # Setup logging
 logger = logging.getLogger()
@@ -137,10 +138,10 @@ def create_data_loader(headlines, tokenizer, max_len, batch_size):
 class NewsClassifier(nn.Module):
     def __init__(self, n_classes):
         super(NewsClassifier, self).__init__()
-        self.bert = BertModel.from_pretrained('bert-base-uncased')
+        self.bert = BertModel.from_pretrained('bert-base-uncased', output_attentions=True)
         self.dropout = nn.Dropout(p=0.3)
         self.fc1 = nn.Linear(self.bert.config.hidden_size, 256)
-        self.batch_norm1 = nn.BatchNorm1d(256)  # 32 groups can be adjusted
+        self.batch_norm1 = nn.BatchNorm1d(256)
         self.fc2 = nn.Linear(256, n_classes)
 
     def forward(self, input_ids, attention_mask):
@@ -149,14 +150,16 @@ class NewsClassifier(nn.Module):
             attention_mask=attention_mask
         )
         cls_output = outputs.pooler_output
+        attentions = outputs.attentions  # Extract attention weights
+        
         x = self.dropout(cls_output)
         x = self.fc1(x)
-        # Log the shape of x before passing to BatchNorm
-        logging.info(f'Input tensor shape before BatchNorm: {x.shape}\n')
         x = self.batch_norm1(x)
         x = torch.relu(x)
         x = self.dropout(x)
-        return self.fc2(x)
+        logits = self.fc2(x)
+        
+        return logits, attentions  # Return both logits and attention weights
 
 def load_model(model_path):
     try:
@@ -170,6 +173,51 @@ def load_model(model_path):
     except Exception as e:
         logger.error(f"Error in loading model: {str(e)}")
         raise
+
+
+def get_top_n_words(input_ids, attention_weights, tokenizer, n=10):
+    # Convert input_ids to tokens
+    tokens = tokenizer.convert_ids_to_tokens(input_ids)
+    logger.info(f'Tokens: {tokens}')
+    
+    # Ensure attention_weights is a 1D array or reduce to a 1D representation (take the mean in case of arrays)
+    attention_weights = attention_weights.cpu().numpy()
+    logger.info(f'Attention Weights: {attention_weights}')
+    
+    # Check if the attention weights are multidimensional
+    if attention_weights.ndim > 1:
+        logger.warning(f"Attention weights have more than one dimension. Reducing by taking the mean across dimensions.")
+        attention_weights = np.mean(attention_weights, axis=-1)
+        logger.info(f"Reduced Attention Weights: {attention_weights}")
+
+    # Make sure that attention_weights has the same length as tokens
+    if len(tokens) != len(attention_weights):
+        logger.error(f"Mismatch between tokens and attention weights: Tokens length: {len(tokens)}, Attention weights length: {len(attention_weights)}")
+        raise ValueError("Length of tokens and attention weights must be the same")
+
+    # Pair tokens with their attention weights
+    token_attention_pairs = list(zip(tokens, attention_weights))
+    logger.info(f'Token-Attention Pairs: {token_attention_pairs}')
+    
+    # Filter out special tokens (those enclosed in square brackets) and tokens shorter than 3 characters
+    token_attention_pairs = [(token, weight) for token, weight in token_attention_pairs if not (token.startswith('[') and token.endswith(']')) and not (token.startswith('#')) and len(token) > 3]
+    logger.info(f'Token-Attention Pairs after filtering special tokens and short words: {token_attention_pairs}')
+    
+    # Sort tokens by attention weight (highest first)
+    try:
+        sorted_pairs = sorted(token_attention_pairs, key=lambda x: float(x[1]), reverse=True)
+    except Exception as e:
+        logger.error(f"Error during sorting: {e}")
+        raise
+
+    # Extract top N tokens and their weights
+    top_n_tokens_with_weights = sorted_pairs[:n]
+    top_n_tokens = [token for token, weight in top_n_tokens_with_weights]
+
+    # Log the top N tokens with their weights
+    logger.info(f'Top {n} Tokens with Weights: {top_n_tokens_with_weights}')
+    
+    return top_n_tokens
 
 
 def lambda_handler(event, context):
@@ -195,8 +243,6 @@ def lambda_handler(event, context):
     logger.info("Model downloaded, loading model")
     
     tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-    
-
     model = load_model(model_path)
 
     # Parse input
@@ -215,19 +261,24 @@ def lambda_handler(event, context):
     
     logger.info("Performing inference")
     predictions = []
-    
+    top_words_weights = []
+
     with torch.no_grad():
         for d in data_loader:
             input_ids = d["input_ids"]
             attention_mask = d["attention_mask"]
-            
-            outputs = model(
-                input_ids=input_ids,
-                attention_mask=attention_mask
-            )
-            
-            _, preds = torch.max(outputs, dim=1)
+
+            # Get logits and attention weights from the model
+            logits, attentions = model(input_ids=input_ids, attention_mask=attention_mask)
+        
+            _, preds = torch.max(logits, dim=1)
             predictions.extend(preds)
+
+            # Process attention weights for each input
+            for i in range(len(input_ids)):
+                attention_weights = attentions[-1][i].mean(0)  # Use the last layer's attention and average over heads
+                top_words = get_top_n_words(input_ids[i], attention_weights, tokenizer, n=10)
+                top_words_weights.append(top_words)
     
     # Prepare the output
     logger.info("Preparing output")
@@ -236,7 +287,8 @@ def lambda_handler(event, context):
         output.append({
             'date': entry['date'],
             'headline': entry['preprocessed_headline'],
-            'prediction': int(predictions[i].item())
+            'prediction': "positive" if predictions[i].item() == 1 else "negative",
+            'top_10_words': top_words_weights[i]  # Include top words with attention weights
         })
     
     return {
