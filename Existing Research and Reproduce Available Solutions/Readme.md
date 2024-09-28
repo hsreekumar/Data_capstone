@@ -1,6 +1,8 @@
 # Existing Research and Reproduce Available Solutions
 **Existing Research**: https://www.atlantis-press.com/article/125977361.pdf
+
 **Available Solution**: https://www.kaggle.com/code/ndrewgele/omg-nlp-with-the-djia-and-reddit
+
 **Reproduced result**: https://github.com/hsreekumar/Data_capstone/blob/main/Stock_News_Data/Existing%20Research%20and%20Reproduce%20Available%20Solutions/NLP_with_the_DJIA_and_Reddit.ipynb
 
 ###  Conclusions
