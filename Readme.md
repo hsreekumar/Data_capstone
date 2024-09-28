@@ -131,11 +131,12 @@ https://github.com/hsreekumar/Data_capstone/tree/main/Model%20Scaled%20for%20Inp
 
 https://github.com/hsreekumar/Data_capstone/tree/main/Deployment
 
-## Model Training Results
+## **Model Training Results**
 
 ![](https://github.com/hsreekumar/Data_capstone/blob/main/Deployment/output/confusion_matrix.png)
 
-![](https://github.com/hsreekumar/Data_capstone/blob/main/Deployment/output/classification_report.json)
+#### **Evaluation Result**
+{"classification_metrics": {"auc_score": {"value": 0.8566028225806451}}}
 
 ## **Cost, Performance & Retraining**
 
