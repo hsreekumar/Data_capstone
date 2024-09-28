@@ -12,9 +12,44 @@ Utility to grab news headlines to test the model : https://news-grabber.streamli
 
 *Please find images of UI input/output here:* [UI_input](https://raw.githubusercontent.com/hsreekumar/Data_capstone/main/Deployment/output/UI_input.png), [UI_output](https://raw.githubusercontent.com/hsreekumar/Data_capstone/main/Deployment/output/UI_output.png)
 
+## **Tech Stack**
+#### Languages:
+- Python: Primary language used for model development, preprocessing, and deployment.
+- Bash/Shell: For scripting and Docker-related operations.
+
+#### Machine Learning and Model Development:
+- **PyTorch**: Core library for building and training the BERT model with a custom head.
+- **Transformers (Hugging Face)**: For pre-trained BERT model and tokenizer.
+- **scikit-learn**: Used for preprocessing (e.g., StandardScaler), model evaluation metrics (e.g., accuracy, precision, recall), and data splitting.
+- **pandas**: For handling and manipulating structured data, especially for feature extraction.
+- **nltk**: For text preprocessing (e.g., tokenization, stopword removal, stemming, lemmatization).
+- **matplotlib**: For visualizing model performance (e.g., loss curves, accuracy plots).
+
+#### Data Storage and Management:
+
+- **Amazon S3**: For storage of training data, model checkpoints, and other large files (input/output data).
+
+#### Containerization and Deployment:
+- **Docker**: For containerizing the application with all dependencies.Dockerfile would include installations for PyTorch, transformers, pandas, scikit-learn, boto3, and nltk.
+- **Amazon ECR (Elastic Container Registry)**: To store Docker images, making them accessible for AWS Lambda.
+- **AWS Lambda**: For inference, where the Docker container is deployed to perform predictions.
+- **Amazon API Gateway**: To expose the Lambda function through an HTTP REST API for external applications to call for sentiment prediction.
+
+#### Frontend / User Interface:
+
+- **Streamlit**: Python-based web app framework to create an interactive UI deployed on **Streamlit Cloud**.
+
+#### Cloud Infrastructure and Services:
+- **AWS IAM (Identity and Access Management)**: For managing access control to S3, Lambda, API Gateway, and other AWS resources.
+- **Amazon CloudWatch**: For logging, monitoring, and debugging the Lambda function and API Gateway traffic.
+
+	
 ## **<u> Model Deployment Architecture</u>**
 
 ![](https://github.com/hsreekumar/Data_capstone/blob/main/Deployment/Architecture.png?raw=true)
+
+## **Sagemaker Pipeline**
+![](https://raw.githubusercontent.com/hsreekumar/Data_capstone/main/Deployment/output/Sagemaker%20Pipeline.png)
 
 ## <u>**Problem statement**</u>
 
@@ -96,8 +131,6 @@ https://github.com/hsreekumar/Data_capstone/tree/main/Model%20Scaled%20for%20Inp
 
 https://github.com/hsreekumar/Data_capstone/tree/main/Deployment
 
-#### **Sagemaker Pipeline**
-![](https://raw.githubusercontent.com/hsreekumar/Data_capstone/main/Deployment/output/Sagemaker%20Pipeline.png)
 ## **Cost, Performance & Retraining**
 
 - Cost is incurred mostly during the training phase, where sagemaker is charged per hour based on the instance type and gpu usage
