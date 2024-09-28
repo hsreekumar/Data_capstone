@@ -131,6 +131,12 @@ https://github.com/hsreekumar/Data_capstone/tree/main/Model%20Scaled%20for%20Inp
 
 https://github.com/hsreekumar/Data_capstone/tree/main/Deployment
 
+## Model Training Results
+
+![](https://github.com/hsreekumar/Data_capstone/blob/main/Deployment/output/confusion_matrix.png)
+
+![](https://github.com/hsreekumar/Data_capstone/blob/main/Deployment/output/classification_report.json)
+
 ## **Cost, Performance & Retraining**
 
 - Cost is incurred mostly during the training phase, where sagemaker is charged per hour based on the instance type and gpu usage
