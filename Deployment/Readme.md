@@ -27,7 +27,7 @@
 ### **Sagemaker Pipeline**
 ![](https://raw.githubusercontent.com/hsreekumar/Data_capstone/main/Deployment/output/Sagemaker%20Pipeline.png)
 
-## **Model Training Results**
+### **Model Training Results**
 
 ![](https://github.com/hsreekumar/Data_capstone/blob/main/Deployment/output/confusion_matrix.png)
 
