@@ -4,10 +4,6 @@
 
 ![](https://github.com/hsreekumar/Data_capstone/blob/main/Deployment/Architecture.png?raw=true)
 
-### **Sagemaker Pipeline**
-![](https://raw.githubusercontent.com/hsreekumar/Data_capstone/main/Deployment/output/Sagemaker%20Pipeline.png)
-
-
 - Training is done in AWS Sagemaker, referencing data stored in S3 bucket. Once all the steps in the training pipeline( Pre-processing, tuning, evaluation) are done, the best model is registered in S3
 
 - Inference/prediction is done with reference to the best model saved in S3.
@@ -25,3 +21,6 @@
 - Another utility app is deployed in streamlit to grab news headlines to provide input to the stock prediction app.
 
 - The app is hosted in streamlit cloud, making a public IP available to the end user
+
+### **Sagemaker Pipeline**
+![](https://raw.githubusercontent.com/hsreekumar/Data_capstone/main/Deployment/output/Sagemaker%20Pipeline.png)
