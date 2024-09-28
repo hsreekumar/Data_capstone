@@ -53,7 +53,7 @@ Utility to grab news headlines to test the model : https://news-grabber.streamli
 
 ## <u>**Problem statement**</u>
 
-Reddit news and DJI stock index price changes are available for 9 years. Analyze the news sentiment and the DJI price fluctuation trends to successfully predict the stock movement based on news headlines.
+Reddit news and DJI stock index price changes are available for 8 years. Analyze the news sentiment and the DJI price fluctuation trends to successfully predict the stock movement based on news headlines.
 
 *Data* - https://github.com/hsreekumar/Data_capstone/tree/main/Data
 
