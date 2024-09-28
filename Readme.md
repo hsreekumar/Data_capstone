@@ -96,8 +96,8 @@ https://github.com/hsreekumar/Data_capstone/tree/main/Model%20Scaled%20for%20Inp
 
 https://github.com/hsreekumar/Data_capstone/tree/main/Deployment
 
-[###Sagemaker Pipeline](https://raw.githubusercontent.com/hsreekumar/Data_capstone/main/Deployment/output/Sagemaker%20Pipeline.png)
-
+#### **Sagemaker Pipeline**
+![](https://raw.githubusercontent.com/hsreekumar/Data_capstone/main/Deployment/output/Sagemaker%20Pipeline.png)
 ## **Cost, Performance & Retraining**
 
 - Cost is incurred mostly during the training phase, where sagemaker is charged per hour based on the instance type and gpu usage
