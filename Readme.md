@@ -149,3 +149,6 @@ https://github.com/hsreekumar/Data_capstone/tree/main/Deployment
 - Re-training might be required when the prediction is not working as expected for latest news or a different source of news. Retraining involves running sagemaker pipeline against a new dataset saved in S3
 - As long as the newly trained image is in the same S3 location as before, lambda function can be redeployed, without having to redeploy, api-gateway or streamlit app for the changes to take effect
 
+## **Future Work: Enhancing Model Performance and Scalability**
+
+In the current setup, SageMaker is configured with ml.m5.4xlarge instances for processing and ml.p3.2xlarge instances for training, each with a single instance, along with a limit of 10 hyperparameter tuning jobs. To further enhance model performance, scaling up to more powerful instance types or increasing the number of hyperparameter tuning jobs could improve accuracy. While BERT is currently the model used for sentiment analysis, exploring alternative models such as RoBERTa, GPT, or DistilBERT could provide further improvements in accuracy and efficiency. This expansion of resources and experimentation with different architectures would likely lead to more robust results for large-scale sentiment analysis tasks.
