@@ -81,7 +81,7 @@ The BERT model has shown promising results, indicating that it’s well-aligned 
 
 https://github.com/hsreekumar/Data_capstone/tree/main/Model%20Exploration
 
-## **<u>Scaling Model for large input</u>**
+## **<u>Scaling the model to handle large inputs</u>**
 
 **Batch Processing**: The DataLoader handles mini-batch processing by dividing the dataset into smaller batches (BATCH_SIZE), which helps in efficient memory management and accelerates training.
 
