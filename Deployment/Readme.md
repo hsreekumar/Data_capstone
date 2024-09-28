@@ -1,10 +1,10 @@
-## **<u>Training & Deployment</u>**
+# **<u>Training & Deployment</u>**
 
-## **<u> Model Deployment Architecture</u>**
+### **<u> Model Deployment Architecture</u>**
 
 ![](https://github.com/hsreekumar/Data_capstone/blob/main/Deployment/Architecture.png?raw=true)
 
-## **Sagemaker Pipeline**
+### **Sagemaker Pipeline**
 ![](https://raw.githubusercontent.com/hsreekumar/Data_capstone/main/Deployment/output/Sagemaker%20Pipeline.png)
 
 
