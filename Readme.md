@@ -96,7 +96,7 @@ https://github.com/hsreekumar/Data_capstone/tree/main/Model%20Scaled%20for%20Inp
 
 https://github.com/hsreekumar/Data_capstone/tree/main/Deployment
 
-
+[###Sagemaker Pipeline](https://raw.githubusercontent.com/hsreekumar/Data_capstone/main/Deployment/output/Sagemaker%20Pipeline.png)
 
 ## **Cost, Performance & Retraining**
 
