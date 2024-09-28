@@ -4,6 +4,8 @@
 
 ![](https://github.com/hsreekumar/Data_capstone/blob/main/Deployment/Architecture.png?raw=true)
 
+### **Steps Followed**
+
 - Training is done in AWS Sagemaker, referencing data stored in S3 bucket. Once all the steps in the training pipeline( Pre-processing, tuning, evaluation) are done, the best model is registered in S3
 
 - Inference/prediction is done with reference to the best model saved in S3.
