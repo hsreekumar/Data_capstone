@@ -14,8 +14,8 @@ Utility to grab news headlines to test the model : https://news-grabber.streamli
 
 ## **Tech Stack**
 #### Languages:
-- Python: Primary language used for model development, preprocessing, and deployment.
-- Bash/Shell: For scripting and Docker-related operations.
+- **Python**: Primary language used for model development, preprocessing, and deployment.
+- **Bash/Shell**: For scripting and Docker-related operations.
 
 #### Machine Learning and Model Development:
 - **PyTorch**: Core library for building and training the BERT model with a custom head.
