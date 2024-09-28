@@ -1,4 +1,4 @@
-# **<u>Scaling Model for large input</u>**
+# **<u>Scaling the model to handle large inputs</u>**
 
 **Batch Processing**: The DataLoader handles mini-batch processing by dividing the dataset into smaller batches (BATCH_SIZE), which helps in efficient memory management and accelerates training.
 
