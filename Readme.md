@@ -25,7 +25,7 @@ Utility to grab news headlines to test the model : https://news-grabber.streamli
 - **nltk**: For text preprocessing (e.g., tokenization, stopword removal, stemming, lemmatization).
 - **matplotlib**: For visualizing model performance (e.g., loss curves, accuracy plots).
 
-#### Cloud Infrastructure and Model Training:
+#### Model Training and Data Storage:
 - **Amazon SageMaker**: Comprehensive platform for training, fine-tuning, and deploying machine learning models. Enables distributed training with support for hyperparameter tuning and automated scaling.
 - **Amazon S3**: For storage of training data, model checkpoints, and other large files (input/output data).
 
